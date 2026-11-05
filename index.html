@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>FilmSim PWA</title>
+  
+  <!-- Meta tags obligatorios para PWA en iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FilmSim">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="app-wrapper">
+    <!-- CATEGORÍAS SUPERIORES -->
+    <nav class="categories-nav">
+    <div class="categories-track">
+        <button class="cat-btn active" data-category="negative_new">Negativos Nuevos</button>
+        <button class="cat-btn" data-category="negative_old">Negativos Antiguos</button>
+        <button class="cat-btn" data-category="bw">Blanco y Negro</button>
+        <button class="cat-btn" data-category="colorslide">Slide</button>
+        <button class="cat-btn" data-category="print">Print</button>
+    </div>
+    </nav>
+
+    <!-- ÁREA DE VISUALIZACIÓN / CARGA -->
+    <div class="canvas-container">
+      <canvas id="gl-canvas"></canvas>
+      
+      <!-- Placeholder inicial -->
+      <label for="image-input" class="upload-placeholder" id="upload-box">
+        <div class="upload-icon">📁</div>
+        <span>Carga aquí tu foto</span>
+        <span class="subtext">Toca para seleccionar de la galería</span>
+      </label>
+      <input type="file" id="image-input" accept="image/*" hidden>
+    </div>
+
+    <!-- CARRUSEL INFERIOR DE PRESETS (Tipo botón con vista previa) -->
+    <nav class="presets-nav">
+        <div class="presets-track" id="presets-track">
+            <!-- JavaScript inyectará los botones aquí automáticamente -->
+        </div>
+    </nav>
+
+    <!-- BARRA DE ACCIÓN FINAL -->
+    <footer class="action-bar">
+      <button id="download-btn" class="btn-primary" disabled>Guardar en el Teléfono</button>
+      <button id="reset-btn" class="btn-secondary" style="display: none;">Reiniciar</button>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
